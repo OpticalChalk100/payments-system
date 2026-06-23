@@ -19,9 +19,9 @@ if not exist "backend\node_modules\" (
 )
 
 rem Check Frontend Dependencies
-if not exist "digital-wallet\node_modules\" (
+if not exist "digital-wallet-next\node_modules\" (
     echo [Frontend] node_modules not found. Installing frontend dependencies...
-    cd digital-wallet
+    cd digital-wallet-next
     call npm install
     cd ..
 ) else (
@@ -34,7 +34,7 @@ start cmd /k "echo --- Backend Log Feed --- && cd backend && npm run dev"
 
 echo.
 echo [3/3] Launching React Frontend...
-start cmd /k "echo --- Frontend Log Feed --- && cd digital-wallet && npm run dev"
+start cmd /k "echo --- Frontend Log Feed --- && cd digital-wallet-next && npm run dev"
 
 echo.
 echo All services launched!
@@ -44,15 +44,14 @@ if "%IP_ADDR%"=="" set IP_ADDR=localhost
 echo.
 echo [Local Access]
 echo - Backend API:       http://localhost:5000
-echo - Frontend client:   https://localhost:5173
+echo - Frontend client:   http://localhost:3000
 echo.
 if not "%IP_ADDR%"=="localhost" (
     echo [Network Access (Other Devices)]
     echo - Backend API:       http://%IP_ADDR%:5000
-    echo - Frontend client:   https://%IP_ADDR%:5173
+    echo - Frontend client:   http://%IP_ADDR%:3000
     echo.
-    echo *Note: Tapping the link on mobile will show a "Your connection is not private" warning.*
-    echo   Choose "Advanced" -> "Proceed" to allow the browser to request camera permissions for live QR scanning.
+    echo *Note: Tapping the link on mobile allows browser camera permissions for live QR scanning.*
     echo.
 )
 echo Double-click to restart, or close the spawned command windows to stop the servers.
