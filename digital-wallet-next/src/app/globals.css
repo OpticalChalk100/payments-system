@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Unseen Studio Theme Colors */
+  --color-bg-main: #0C0C0D;       /* Warm rich black */
+  --color-bg-surface: #141416;    /* Carbon surface panel */
+  --color-accent-cream: #efded9;  /* Cream primary accent */
+  --color-border-glass: rgba(239, 222, 217, 0.08);
+  --color-border-glass-hover: rgba(239, 222, 217, 0.25);
+  --color-text-muted: #8c8c8e;
+  --color-text-dim: #4e4e50;
+
+  /* Custom Easing Curves */
+  --ease-unseen: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-unseen-slow: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+:root {
+  background-color: var(--color-bg-main);
+  color: var(--color-accent-cream);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-bg-main);
+  color: var(--color-accent-cream);
+  min-height: 100vh;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+  border-left: 1px solid var(--color-border-glass);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-cream);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
