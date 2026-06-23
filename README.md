@@ -1,6 +1,18 @@
 # FinTech Digital Wallet & Payments Ledger
 
-A secure, interactive digital wallet and transactional payments ledger. This platform enables users to register accounts, transfer funds via emails or QR codes, configure two-factor authentication, view real-time spend analytics, and manage fraud detection flags.
+A secure, interactive digital wallet client and transaction ledger system. 
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Next.js_Client-6D28D9?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://payments-frontend-c62g.onrender.com)
+[![API Endpoint](https://img.shields.io/badge/Live_API-Express_Service-000000?style=for-the-badge&logo=express&logoColor=white)](https://payments-system-zs42.onrender.com)
+
+---
+
+## Live Deployments
+
+- **Interactive Dashboard:** [https://payments-frontend-c62g.onrender.com](https://payments-frontend-c62g.onrender.com)
+- **Backend API Server:** [https://payments-system-zs42.onrender.com](https://payments-system-zs42.onrender.com)
+
+*For demo login testing, you can use `vishalsharma@gmail.com` with password `password1234`.*
 
 ---
 
@@ -54,9 +66,9 @@ For Windows systems, we have configured a root startup script:
 
 ## Production Deployment on Render
 
-This codebase is ready to deploy directly on Render:
+This codebase is deployed on Render using the following configurations:
 
-1. **Database:** Deploy a **Render PostgreSQL** instance (this injects the `DATABASE_URL` credential automatically).
+1. **Database:** Deploy a **Render PostgreSQL** instance (provides the `DATABASE_URL` credential).
 2. **Backend Service:**
    - **Type:** Web Service
    - **Root Directory:** `backend`
@@ -66,11 +78,12 @@ This codebase is ready to deploy directly on Render:
      - `DATABASE_URL`: (linked database URL)
      - `DATABASE_SSL`: `true`
      - `PORT`: `5000`
-     - `JWT_SECRET`: (your secure signing secret)
+     - `JWT_SECRET`: (secure signing secret)
+     - `FRONTEND_URL`: `https://payments-frontend-c62g.onrender.com`
 3. **Frontend Service:**
    - **Type:** Web Service
    - **Root Directory:** `digital-wallet-next`
-   - **Build Command:** `npm run build`
-   - **Start Command:** `npm start`
+   - **Build Command:** `npm install && npm run build`
+   - **Start Command:** `npx next start -H 0.0.0.0 -p $PORT`
    - **Environment Variables:**
-     - `BACKEND_URL`: (the deployed backend URL, e.g., `https://your-backend.onrender.com`)
+     - `BACKEND_URL`: `https://payments-system-zs42.onrender.com`
